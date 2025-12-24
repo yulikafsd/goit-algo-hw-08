@@ -11,6 +11,7 @@ import heapq
 
 def join_cables_heap(cable_len):
 
+    # Check if list is not empty
     if not cable_len:
         return 0
 
@@ -18,6 +19,8 @@ def join_cables_heap(cable_len):
     heap = cable_len.copy()
     heapq.heapify(heap)
 
+    # Add sum of min values from the heap to total_sum
+    # and replace the min values in the heap with their sum
     while len(heap) > 1:
         first = heapq.heappop(heap)
         second = heapq.heappop(heap)
@@ -30,12 +33,15 @@ def join_cables_heap(cable_len):
 
 def join_cables_list(cable_len):
 
+    # Check if list is not empty
     if not cable_len:
         return 0
 
     total_sum = 0
     cables = cable_len.copy()
 
+    # Add sum of min values from the list to total_sum
+    # and replace the min values in the list with their sum
     while len(cables) > 1:
         first = cables.pop(0)
         second = cables.pop(0)
@@ -49,6 +55,7 @@ def join_cables_list(cable_len):
 if __name__ == "__main__":
     cable_len = [12, 4, 25, 3, 1]
 
+    # Compare results
     heap_result = join_cables_heap(cable_len)
     list_result = join_cables_list(cable_len)
 
